@@ -21,8 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: process.env.SESSION_SECRET || 'default-secret-key', 
     resave: false,
-    saveUninitialized: false,
-    cookie: { secure: process.env.NODE_ENV === 'production' } 
+    saveUninitialized: false
 }));
 
 // Use the routes
