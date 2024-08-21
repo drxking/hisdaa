@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <main class="w-full h-screen ">
+
+        <!-- Nav bar -->
+        <nav class="flex items-center justify-between px-10 py-5 ">
+            <a href="/" class="text-2xl tracking-tight font-['Helvetica']">Khaatabook</a>
+            <div class="block lg:hidden">
+                <button id="menu-toggle" class="text-gray-500 focus:outline-none">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+            <div id="nav-links" class="hidden lg:flex gap-5">
+                <a href="/" class="tracking-tight">Home</a>
+                <a href="/create" class="tracking-tight">Create New Hisaab</a>
+                <a href="/logout" class="tracking-tight">Logout</a>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden lg:hidden flex flex-col items-start px-10 pt-5">
+            <a href="/" class="py-2">Home</a>
+            <a href="/create" class="py-2">Create New Hisaab</a>
+            <a href="/logout" class="py-2">Logout</a>
+        </div>
+
+        <div class="px-10 hisaabs">
+
+            <h2 class="text-xl font-medium mb-5 mt-10 tracking-tight">Edit Your Note</h2>
+
+            <form class="flex flex-col items-start w-full" action="/update/<%= hisaab._id %>" method="post">
+
+                <input type="text" id="title" name="title" value="<%= hisaab.title %>" placeholder="Note Heading..."
+                    class="w-1/2 px-3 py-2 bg-gray-100 rounded  md:text-base text-sm">
+
+
+                <div class="mb-4 w-full">
+                    <textarea name="content"
+                        class="block mt-5 resize-none h-72 w-1/2 bg-slate-200 outline-none border-[1px] rounded-md p-5"
+                        placeholder="Apna Hisaab Likhen"><%=hisaab.content%></textarea>
+                </div>
+
+                <input class="px-7 py-2 bg-blue-300 text-lg rounded-md mt-4" type="submit" value="Update Hisaab">
+            </form>
+
+        </div>
+
+    </main>
+
+    <script>
+        // JavaScript to toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

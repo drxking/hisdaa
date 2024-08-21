@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <main class="w-full h-screen  ">
+        <nav class="flex items-center justify-between px-10 py-5 ">
+            <a href="/" class="text-2xl tracking-tight font-['Helvetica']">Khaatabook</a>
+            <div class="block lg:hidden">
+                <button id="menu-toggle" class="text-gray-500 focus:outline-none">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+            <div id="nav-links" class="hidden lg:flex gap-5">
+                <a href="/" class="tracking-tight">Home</a>
+                
+                <a href="/logout" class="tracking-tight">Logout</a>
+                <% if (user) { %>
+                    <span class="tracking-tight">Welcome, <%= user.username %>!</span>
+                <% } %>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden lg:hidden flex flex-col items-start px-10 pt-5">
+            <a href="/" class="py-2">Home</a>
+            
+            <a href="/logout" class="py-2">Logout</a>
+        </div>
+
+        <div class="px-10 hisaabs">
+            <h3 class="capitalize text-2xl mb-5 mt-10 tracking-tight">
+                All Hisaab kitaab
+            </h3>
+
+            <% if(hisaabs.length>0) { %>
+
+                <% hisaabs.forEach(function (hisaab) { %>
+                    
+                    <div class="hisaab w-max items-center mb-5 px-5 py-3 gap-[4rem] bg-blue-200 flex justify-between rounded">
+                        <div class="flex gap-4 text-white items-center">
+                            <h3 class="text-2xl"><%= hisaab.title %></h3>
+                            <a href="/show/<%=  hisaab._id %>">
+                                <i
+                                    class="w-6 h-6 text-blue-500 flex items-center justify-center bg-white rounded-full ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            <a href="/edit/<%=  hisaab._id %>"><i class="text-xl text-white ri-pencil-line"></i></a>
+                            <a href="/delete/<%=  hisaab._id %>"> <i
+                                    class="w-6 h-6 text-blue-500 flex items-center justify-center bg-white rounded-full ri-delete-bin-5-fill"></i></a>
+                        </div>
+                    </div>
+                    
+                <%})%>
+
+            <% } else { %>
+
+                <h3 class="text-zinc-500">Nothing to show,create Hisaab</h3>
+
+            <% } %>
+
+        </div>
+    </main>
+
+    <script>
+        // JavaScript to toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

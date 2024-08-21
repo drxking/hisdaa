@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <main class="w-full h-screen ">
+
+        <!-- Nav bar -->
+        <nav class="flex items-center justify-between px-10 py-5 ">
+            <a href="/" class="text-2xl tracking-tight font-['Helvetica']">Khaatabook</a>
+            <div class="block lg:hidden">
+                <button id="menu-toggle" class="text-gray-500 focus:outline-none">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+            <div id="nav-links" class="hidden lg:flex gap-5">
+                <a href="/" class="tracking-tight">Home</a>
+                <a href="/create" class="tracking-tight">Create New Hisaab</a>
+                <a href="/logout" class="tracking-tight">Logout</a>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden lg:hidden flex flex-col items-start px-10 pt-5">
+            <a href="/" class="py-2">Home</a>
+            <a href="/create" class="py-2">Create New Hisaab</a>
+            <a href="/logout" class="py-2">Logout</a>
+        </div>
+        <!-- End Nav bar -->
+
+        <div class="px-10 hisaabs mt-10">
+            <div>
+
+                <h2 class="text-3xl font-medium mb-5 mt-10 tracking-tighter ">
+                    Your
+                    <span class="text-white capitalize font-bold">
+                        <%= hisaab.title %>
+                    </span>
+                    hisaab was created on <span class="text-white text-[1.6rem] capitalize font-bold">
+                        <%= new Date(hisaab.createdAt).toLocaleDateString()%>
+                    </span>
+                </h2>
+
+                <p name="content" class="font medium text-2xl mb-10 tracking-wide capitalize">
+                    <%= hisaab.content %>
+                </p>
+
+                <a class="px-6  py-2 bg-blue-300 hover:bg-blue-100 text-lg rounded-md " href="/edit/<%= hisaab._id%>">Edit </a>
+            </div>
+
+        </div>
+
+    </main>
+    
+    <script>
+        // JavaScript to toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <main class="w-full h-screen ">
+
+        <!-- Nav bar -->
+        <nav class="flex items-center justify-between px-10 py-5 ">
+            <a href="/" class="text-2xl tracking-tight font-['Helvetica']">Khaatabook</a>
+            <div class="block lg:hidden">
+                <button id="menu-toggle" class="text-gray-500 focus:outline-none">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+            <div id="nav-links" class="hidden lg:flex gap-5">
+                <a href="/" class="tracking-tight">Home</a>
+                <a href="/hisaabs" class="tracking-tight">Show hisaabs</a>
+                <a href="/logout" class="tracking-tight">Logout</a>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden lg:hidden flex flex-col items-start px-10 pt-5">
+            <a href="/" class="py-2">Home</a>
+            <a href="/hisaabs" class="py-2">Show hisaabs</a>
+            <a href="/logout" class="py-2">Logout</a>
+        </div>
+        <!-- Nav bar -->
+        <div class="px-10 hisaabs">
+            <h1 class="mt-10 mb-5 tracking-tight lg:text-2xl font-medium capitalize">create New Hisaab</h1>
+
+            <form action="/createhisaab" method="post">
+
+                <input name="title" class="w-full lg:w-1/2 px-3 py-2 bg-slate-200 outline-none text-md rounded-md " value=""
+                    placeholder="Ghar ke Kharch">
+                <textarea name="content"
+                    class="block mt-5 resize-none h-72 w-full lg:w-1/2 bg-slate-200 outline-none border-[1px] rounded-md p-5"
+                    placeholder="Apna Hisaab Likhen"></textarea>
+                <input class="px-7 py-2 bg-blue-300 lg:text-lg rounded-md mt-4 hover:bg-blue-100" type="submit" value="Create Hisaab">
+
+            </form>
+
+        </div>
+    </main>
+
+    <script>
+        // JavaScript to toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

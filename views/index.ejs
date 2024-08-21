@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <main class="w-full h-screen">
+        <nav class="flex items-center justify-between px-10 py-5 ">
+            <a href="/" class="text-2xl tracking-tight font-['Helvetica']">Khaatabook</a>
+            <div class="block lg:hidden">
+                <button id="menu-toggle" class="text-gray-500 focus:outline-none">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+            <div id="nav-links" class="hidden lg:flex gap-5">
+                <a href="/" class="tracking-tight">Home</a>
+                <a href="/create" class="tracking-tight">Create New Hisaab</a>
+                <a href="/login" class="tracking-tight">Login</a>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="hidden lg:hidden flex flex-col items-start px-10 pt-5">
+            <a href="/" class="py-2">Home</a>
+            <a href="/create" class="py-2">Create New Hisaab</a>
+            <a href="/login" class="py-2">Login</a>
+        </div>
+
+        <div class="hero w-full h-[calc(100vh-80px)] flex flex-col md:flex-row p-4 md:p-4 overflow-hidden">
+            <div class="w-full md:w-1/2 flex flex-col items-start justify-center px-4 mb-4 md:mb-0">
+                <h1 class="text-3xl font-bold text-gray-800 mb-6 ">Welcome to Khatabook</h1>
+                <p class="text-gray-600 md:text-lg lg:text-xl  text-justify">
+                    Khatabook is a digital ledger application designed to help users manage their daily financial transactions effortlessly. It allows individuals and small business owners to record their income and expenses, track payments, and maintain a clear overview of their financial status. Khatabook simplifies the bookkeeping process, making it accessible to everyone.
+                </p>
+            </div>
+            <div class="w-full md:w-1/2 flex items-center justify-center">
+                <img class="w-full h-full max-h-[80%] rounded-lg shadow-md object-cover" src="../images/finance-financial-performance-concept-illustration.png" alt="Finance Illustration">
+            </div>
+        </div>  
+    </main>
+
+    <script>
+        // JavaScript to toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
+    
