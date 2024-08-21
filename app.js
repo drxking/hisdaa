@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: process.env.SESSION_SECRET || 'default-secret-key', 
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: true
 }));
 
 // Use the routes
